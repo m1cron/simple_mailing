@@ -1,0 +1,54 @@
+postgres:
+  host: 'localhost:5432'
+  schema: 'public'
+  dbname: 'postgres'
+  user: 'postgres'
+  password: 'root'
+
+spring:
+  application:
+    name: app-mailing
+  main:
+    banner-mode: off
+    allow-bean-definition-overriding: true
+  mandatory-file-encoding: UTF-8
+  datasource:
+    url: jdbc:postgresql://${postgres.host}/${postgres.dbname}?currentSchema=${postgres.schema}
+    username: ${postgres.user}
+    password: ${postgres.password}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 6
+      minimum-idle: 2
+      connection-timeout: 10000
+  sql:
+    init:
+      mode: never
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: true
+    show_sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        jdbc:
+          fetch_size: 100
+        use_lazy_proxy_factory: true
+        enable_lazy_load_no_trans: true
+  liquibase:
+    enabled: false
+    change-log: 'classpath:liquibase/changelog-master.yml'
+
+server:
+  port: 8080
+  servlet:
+    encoding:
+      force-response: true
+      charset: UTF-8
+
+management:
+  server:
+    port: 8090
+
+logging.config: classpath:logback-spring.xml
