@@ -1,0 +1,32 @@
+group = 'ru.micron'
+version = '1.0'
+rootProject.wrapper.gradleVersion = '7.2'
+
+buildscript {
+    ext {
+        ver = [
+                lombok          : '1.18.20'
+        ]
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+defaultTasks 'clean', 'build'
+
+subprojects {
+    apply plugin: 'java'
+
+    targetCompatibility = sourceCompatibility = JavaVersion.VERSION_17
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+allprojects {
+    repositories.addAll(rootProject.buildscript.repositories)
+}

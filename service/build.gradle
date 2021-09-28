@@ -1,0 +1,9 @@
+archivesBaseName = rootProject.name
+group = parent.group
+version = parent.version
+
+dependencies {
+    // Lombok
+    compileOnly "org.projectlombok:lombok:$ver.lombok"
+    annotationProcessor "org.projectlombok:lombok:$ver.lombok"
+}
