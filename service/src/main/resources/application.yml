@@ -37,7 +37,7 @@ spring:
         use_lazy_proxy_factory: true
         enable_lazy_load_no_trans: true
   liquibase:
-    enabled: false
+    enabled: true
     liquibase-schema: ${postgres.schema}
     change-log: 'classpath:liquibase/changelog-master.yml'
 

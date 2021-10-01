@@ -5,10 +5,6 @@ postgres:
   user: 'mailing'
   password: 'mailing'
 
-spring:
-  liquibase:
-    enabled: true
-
 server:
   port: 8081
 
