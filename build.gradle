@@ -30,7 +30,7 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
 
-    targetCompatibility = sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = sourceCompatibility = JavaVersion.VERSION_16
 
     test {
         systemProperty 'spring.profiles.active', 'test'
