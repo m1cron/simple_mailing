@@ -1,7 +1,7 @@
 postgres:
   host: 'database:5432'
   dbname: 'mailing'
-  schema: 'core'
+  schema: 'public'
   user: 'mailing'
   password: 'mailing'
 

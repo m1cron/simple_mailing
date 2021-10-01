@@ -13,6 +13,3 @@ CREATE DATABASE mailing
     WITH
     OWNER = mailing
     ENCODING = 'UTF8';
-
-CREATE SCHEMA core
-    AUTHORIZATION mailing;
