@@ -7,3 +7,11 @@ databaseChangeLog:
             encoding: utf8
             path: 20211001-01-init-main-table.sql
             relativeToChangelogFile: true
+  - changeSet:
+      id: 20211001-02
+      author: m1cron4900@gmail.com
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: 20211001-02-init-users.sql
+            relativeToChangelogFile: true

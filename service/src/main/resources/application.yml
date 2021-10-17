@@ -11,6 +11,7 @@ spring:
   main:
     banner-mode: off
     allow-bean-definition-overriding: true
+    web-application-type: none
   mandatory-file-encoding: UTF-8
   datasource:
     url: jdbc:postgresql://${postgres.host}/${postgres.dbname}?currentSchema=${postgres.schema}
