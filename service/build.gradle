@@ -16,10 +16,6 @@ dependencies {
     implementation 'org.postgresql:postgresql'
     implementation 'org.liquibase:liquibase-core'
 
-    // Swagger
-    implementation "io.springfox:springfox-swagger2:$ver.swagger"
-    implementation "io.springfox:springfox-swagger-ui:$ver.swagger"
-
     // Lombok
     compileOnly "org.projectlombok:lombok:$ver.lombok"
     annotationProcessor "org.projectlombok:lombok:$ver.lombok"
