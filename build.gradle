@@ -5,7 +5,11 @@ rootProject.wrapper.gradleVersion = '7.2'
 buildscript {
     ext {
         ver = [
-                lombok          : '1.18.20'
+                springBoot              : '2.5.5',
+                dependencyManagement    : '1.0.11.RELEASE',
+                lombok                  : '1.18.20',
+                swagger                 : '3.0.0',
+                h2                      : '1.4.200'
         ]
     }
 
@@ -13,16 +17,23 @@ buildscript {
         mavenCentral()
         mavenLocal()
     }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:$ver.dependencyManagement",
+                "org.springframework.boot:spring-boot-gradle-plugin:$ver.springBoot"
+    }
 }
 
 defaultTasks 'clean', 'build'
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
 
-    targetCompatibility = sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = sourceCompatibility = JavaVersion.VERSION_16
 
     test {
+        systemProperty 'spring.profiles.active', 'test'
         useJUnitPlatform()
     }
 }
