@@ -1,43 +1,18 @@
-group = 'ru.micron'
-version = '1.0'
-rootProject.wrapper.gradleVersion = '7.2'
-
-buildscript {
-    ext {
-        ver = [
-                springBoot              : '2.5.5',
-                dependencyManagement    : '1.0.11.RELEASE',
-                lombok                  : '1.18.20',
-                swagger                 : '3.0.0',
-                h2                      : '1.4.200'
-        ]
-    }
-
-    repositories {
-        mavenCentral()
-        mavenLocal()
-    }
-
-    dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:$ver.dependencyManagement",
-                "org.springframework.boot:spring-boot-gradle-plugin:$ver.springBoot"
-    }
+plugins {
+	id 'java'
+	id 'net.researchgate.release' version '2.8.1'
 }
 
-defaultTasks 'clean', 'build'
+group = 'ru.vtb.ievt'
+sourceCompatibility = '11'
 
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'io.spring.dependency-management'
-
-    targetCompatibility = sourceCompatibility = JavaVersion.VERSION_16
-
-    test {
-        systemProperty 'spring.profiles.active', 'test'
-        useJUnitPlatform()
-    }
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
 }
 
-allprojects {
-    repositories.addAll(rootProject.buildscript.repositories)
+repositories {
+	mavenLocal()
+	mavenCentral()
 }
