@@ -3,6 +3,12 @@ plugins {
 	id 'net.researchgate.release' version '2.8.1'
 }
 
+release {
+	versionPatterns = [
+			/(\d+)\.(\d+)\.(\d)$/: { java.util.regex.Matcher m, Project p -> m.replaceAll("${m[0][1]}.${(m[0][2] as int) +1}.${m[0][3]}") }
+	]
+}
+
 group = 'ru.vtb.ievt'
 sourceCompatibility = '11'
 
